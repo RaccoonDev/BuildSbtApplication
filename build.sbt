@@ -7,7 +7,7 @@ lazy val root = (project in file(".")).
     inThisBuild(List(
       organization          := "com.devraccoon",
       scalaVersion          := "2.12.2",
-      version               := "0.3.0-SNAPSHOT"
+      version               := "0.4.0-SNAPSHOT"
     )),
     name := "Hello",
     dockerfile in docker := {
@@ -26,5 +26,5 @@ lazy val root = (project in file(".")).
       // Sets a name with a tag that contains the project version
       ImageName(s"${organization.value}/${name.value}:v${version.value.toLowerCase}".toLowerCase)
     ),
-    libraryDependencies += scalaTest % Test
+    libraryDependencies ++= projectDeps
   )
